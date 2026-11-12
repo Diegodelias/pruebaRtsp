@@ -20,7 +20,7 @@ const { CAM_USER, CAM_PASS, CAM_HOST } = process.env;
 const FFMPEG = process.env.FFMPEG || 'ffmpeg';
 const FFPROBE = process.env.FFPROBE || 'ffprobe';
 if (!CAM_USER || !CAM_PASS || !CAM_HOST) {
-  console.error('Faltan variables CAM_USER, CAM_PASS, CAM_HOST (ej. clubadila.dyndns.info:554)');
+  console.error('Faltan variables CAM_USER, CAM_PASS, CAM_HOST (ej. host.ejemplo.com:554)');
   process.exit(1);
 }
 
