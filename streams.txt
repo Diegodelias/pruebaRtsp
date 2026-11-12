@@ -1,0 +1,12 @@
+Buen día para todos, adjunto la cadena del rtsp de Hikvision para vista en vivo. Es una camara con 2 canales, una con gran angular y otra mas corta, cambia el stream reemplazando el primer dígito de los ultimos 3 números.
+
+Para obtener rangos de video almacenados utilicé ffmpeg.
+
+rtsp://camaras:DemoAdila2026!@clubadila.dyndns.info:554/Streaming/Channels/101
+
+rtsp://camaras:DemoAdila2026!@clubadila.dyndns.info:554/Streaming/Channels/201
+
+
+Cualquier consulta me avisan.
+
+Saludos cordiales Alan Faur.

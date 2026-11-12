@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PoC RTSP Hikvision</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <h1>PoC RTSP Hikvision: vivo y grabaciones</h1>
+    <form id="form">
+      <label>Canal
+        <select name="channel">
+          <option value="101">1 · gran angular (principal)</option>
+          <option value="102">1 · gran angular (secundario)</option>
+          <option value="201">2 · corto (principal)</option>
+          <option value="202">2 · corto (secundario)</option>
+        </select>
+      </label>
+      <fieldset>
+        <legend>Modo</legend>
+        <label><input type="radio" name="mode" value="live" checked> En vivo</label>
+        <label><input type="radio" name="mode" value="playback"> Grabación</label>
+      </fieldset>
+      <label>Inicio (hora local)<input type="datetime-local" name="start" step="1" disabled></label>
+      <label>Fin (opcional)<input type="datetime-local" name="end" step="1" disabled></label>
+      <label class="check"><input type="checkbox" name="transcode" checked> Transcodificar a H.264 1080p (necesario para HEVC / canal 1)</label>
+      <div class="actions">
+        <button type="submit">Reproducir</button>
+        <button type="button" id="recordings">Buscar grabaciones</button>
+        <button type="button" id="probe">Probar (ffprobe)</button>
+        <button type="button" id="stop">Detener</button>
+      </div>
+    </form>
+    <section id="segments" hidden>
+      <h2>Grabaciones (hora local)</h2>
+      <ul id="segList"></ul>
+    </section>
+    <video id="video" controls autoplay muted playsinline></video>
+    <pre id="log" aria-live="polite"></pre>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
