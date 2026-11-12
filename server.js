@@ -140,7 +140,7 @@ http.createServer((req, res) => {
   if (url.pathname === '/stream') {
     const transcode = url.searchParams.get('transcode') === '1';
     const video = transcode
-      ? ['-c:v', 'libx264', '-preset', 'veryfast', '-tune', 'zerolatency', '-vf', 'scale=1920:-2', '-g', '50']
+      ? ['-c:v', 'libx264', '-preset', 'veryfast', '-tune', 'zerolatency', '-vf', 'scale=1920:-2:flags=fast_bilinear', '-maxrate', '4M', '-bufsize', '4M', '-g', '50']
       : ['-c:v', 'copy'];
     const args = ['-hide_banner', '-loglevel', 'error', '-rtsp_transport', 'tcp', '-timeout', '15000000', '-i', rtsp,
       ...video, '-c:a', 'aac', '-f', 'mp4', '-movflags', 'frag_keyframe+empty_moov+default_base_moof', 'pipe:1'];

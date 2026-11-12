@@ -25,9 +25,6 @@ function syncMode() {
   }
 }
 
-function syncTranscode() {
-  form.transcode.checked = form.channel.value.startsWith('1');
-}
 
 function stop() {
   video.pause();
@@ -37,7 +34,6 @@ function stop() {
 
 form.addEventListener('change', (e) => {
   if (e.target.name === 'mode') syncMode();
-  if (e.target.name === 'channel') syncTranscode();
 });
 
 form.addEventListener('submit', async (e) => {
@@ -103,4 +99,3 @@ video.addEventListener('error', async () => {
 });
 
 syncMode();
-syncTranscode();
